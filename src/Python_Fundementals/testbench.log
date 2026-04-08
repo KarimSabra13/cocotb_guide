@@ -1,0 +1,3 @@
+[2026-04-08 10:39:57,454] DEBUG    | This DEBUG message goes ONLY to file (INFO threshold blocks console) | [<module>:201]
+[2026-04-08 10:39:57,455] INFO     | This INFO message goes to BOTH console and file | [<module>:202]
+[2026-04-08 10:39:57,455] WARNING  | This WARNING message goes to BOTH console and file | [<module>:203]
