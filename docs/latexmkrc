@@ -1,0 +1,7 @@
+$pdf_mode = 4;
+$lualatex = 'lualatex -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape %O %S';
+$bibtex = 'biber %O %B';
+$out_dir = 'docs/build';
+$aux_dir = 'docs/build';
+$clean_ext .= ' %R.run.xml %R.bcf %R.bbl %R.blg %R.fdb_latexmk %R.fls';
+@default_files = ('docs/main.tex');

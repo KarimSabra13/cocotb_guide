@@ -1,0 +1,31 @@
+\begin{titlepage}
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[GuidePaper] (current page.south west) rectangle (current page.north east);
+  \fill[GuideAccent!10] ([xshift=1.2cm,yshift=-1.2cm]current page.north west) rectangle ([xshift=7.5cm,yshift=-8.5cm]current page.north west);
+  \fill[GuideWarm!18] ([xshift=-1.2cm,yshift=1.2cm]current page.south east) rectangle ([xshift=-8.5cm,yshift=7.2cm]current page.south east);
+  \draw[GuideAccent,line width=7pt] ([xshift=1.5cm,yshift=-1.5cm]current page.north west) rectangle ([xshift=-1.5cm,yshift=1.5cm]current page.south east);
+\end{tikzpicture}
+
+\vspace*{3.3cm}
+
+{\Huge\sffamily\bfseries\color{GuideInk}\GuideTitle\par}
+\vspace{0.5cm}
+{\Large\sffamily\color{GuideMuted}\GuideSubtitle\par}
+
+\vfill
+
+\begin{tcolorbox}[width=0.72\textwidth,colback=white,colframe=GuideInk,colbacktitle=GuideInk,title=Repository Status]
+Initial skeleton prepared for a chapter-by-chapter build.\par
+LuaLaTeX document pipeline, figure toolchain scaffolding, and repository hygiene are in place.
+\end{tcolorbox}
+
+\vfill
+
+{\Large\sffamily\bfseries\GuideAuthor\par}
+\vspace{0.2cm}
+{\sffamily\GuideVersion\par}
+{\sffamily\GuideDate\par}
+
+\end{titlepage}

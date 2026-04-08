@@ -1,0 +1,22 @@
+kind: fsm
+title: Async FIFO Control FSM
+notes:
+  - Replace placeholder states with the real control flow later.
+states:
+  - RESET
+  - IDLE
+  - ACTIVE
+  - ERROR
+transitions:
+  - source: RESET
+    target: IDLE
+    label: rst_n
+  - source: IDLE
+    target: ACTIVE
+    label: start
+  - source: ACTIVE
+    target: ERROR
+    label: fault
+  - source: ERROR
+    target: IDLE
+    label: clear

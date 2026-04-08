@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Python: install docs tooling",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "-m",
+        "pip",
+        "install",
+        "-e",
+        "./docs/tools[dev]"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Figures: render all specs",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "-m",
+        "cocotb_dv_guide.diagramgen",
+        "batch",
+        "docs/figures/specs",
+        "docs/figures/generated"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docs: build PDF",
+      "type": "shell",
+      "command": "latexmk",
+      "args": [
+        "-r",
+        "docs/latexmkrc",
+        "docs/main.tex"
+      ],
+      "group": "build",
+      "dependsOn": [
+        "Figures: render all specs"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Docs: clean",
+      "type": "shell",
+      "command": "latexmk",
+      "args": [
+        "-r",
+        "docs/latexmkrc",
+        "-C"
+        "docs/main.tex"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
