@@ -9,6 +9,12 @@ __pycache__/
 dist/
 build/
 
+docs/*
+!docs/README.md
+!docs/build/
 docs/build/*
-!docs/build/.gitignore
+!docs/build/README.md
 !docs/build/*.pdf
+!docs/tools/
+docs/tools/*
+!docs/tools/README.md

@@ -1,18 +1,16 @@
 # Cocotb DV Guide
 
-Repository for the actual Python guide code at the root and the guide-writing toolchain under `docs/`.
+Repository for the actual Python guide code at the root, with `docs/` kept mostly local and out of Git.
 
-This repository is intentionally scaffolded first. The structure for writing the guide is ready, while the real teaching code lives at the repository root.
+This repository is intentionally scaffolded first. The real teaching code lives outside the ignored docs workspace, while the documentation workspace under `docs/` is treated as local authoring material.
 
-The actual prose guide is still in skeleton mode. The root-level Python folders are the real guide code, starting with `Python_Fundementals/`.
+The actual prose guide is still in skeleton mode. The real guide code stays outside `docs/`.
 
-## Repository boundaries
+## Git Policy
 
-- Real guide code: root-level Python folders such as `Python_Fundementals/`, plus future root-level topic folders.
-- Real guide document content: `docs/chapters/`, `docs/frontmatter/`, `docs/config/`, and the final tracked PDF under `docs/build/`.
-- Internal setup and authoring tools only: `docs/tools/`, `.vscode/`, and figure spec helpers under `docs/figures/specs/`.
-
-If a file only exists to help write, draw, render, lint, or build the guide, treat it as tooling. If a file is part of the guide itself, a cocotb example, or the final PDF artifact, treat it as actual project content.
+- Guide code outside `docs/` is the real tracked course material.
+- Inside `docs/`, Git should keep only generated final PDFs and README markdown files.
+- LaTeX sources, figure specs, internal tooling code, and other authoring files under `docs/` stay local and ignored.
 
 ## Core choices
 
@@ -25,29 +23,16 @@ If a file only exists to help write, draw, render, lint, or build the guide, tre
 
 ```text
 docs/
-  bibliography/      BibLaTeX database
-  build/             Build area; only final PDF is meant to be tracked
-  chapters/          Chapter shells only
-  config/            TeX metadata, packages, theme, and macros
-  figures/
-    generated/       Generated assets, ignored except for directory marker
-    specs/           YAML source specs for the Python diagram pipeline
-  frontmatter/       Title page and future front matter
-  latexmkrc          LaTeX build configuration
-  main.tex           Master document
-  tools/
-    pyproject.toml   Internal Python tooling package config
-    src/             Internal diagram and authoring tooling only
-    tests/           Internal smoke tests for tooling
-Python_Fundementals/ Actual guide code already started at the repo root
+  tracked in Git: final PDFs plus README markdown files
+  ignored in Git: LaTeX sources, tooling, specs, and build intermediates
+outside docs/ actual guide code lives here
 ```
 
-## First bootstrap
+## Local docs workflow
 
-1. Create and activate a Python environment.
-2. Install the doc tooling with `python -m pip install -e ./docs/tools[dev]`.
-3. Ensure TeX Live or MiKTeX provides `latexmk`, `lualatex`, `biber`, `minted`, `tikz`, `circuitikz`, `pgfplots`, `tikz-timing`, and `bytefield`.
-4. Use the VS Code tasks or run `latexmk` from the repository root.
+1. Keep your local authoring files inside `docs/`.
+2. Compile the guide locally.
+3. Commit only the final generated PDF from `docs/` plus markdown files you want to keep.
 
 ## Current status
 
